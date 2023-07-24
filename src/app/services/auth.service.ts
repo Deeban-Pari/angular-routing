@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService implements OnInit {
   ngOnInit(): void {}
-  private apiUrl = 'http://localhost:3000/users';
+  private apiUrl =
+    'http://localhost:3000/users|| https://angular-application.onrender.com/login';
   private isLoggedIn = false;
   public uName: any;
   public password: any;
