@@ -2,14 +2,14 @@ import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/app/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService implements OnInit {
   ngOnInit(): void {}
-  private apiUrl =
-    'http://localhost:3000/users|| https://angular-application.onrender.com/login';
+  private apiUrl = environment.apiUrl;
   private isLoggedIn = false;
   public uName: any;
   public password: any;
