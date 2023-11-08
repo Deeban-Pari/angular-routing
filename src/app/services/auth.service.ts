@@ -1,15 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, catchError, of, switchMap, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/app/environments/environment.prod';
+// import { environment } from '../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService implements OnInit {
   ngOnInit(): void {}
-  private apiUrl = environment.apiUrl;
+  // private apiUrl = environment.apiUrl;
+  private apiUrl = 'http://localhost:3000/users';
   private isLoggedIn = false;
   public uName: any;
   public password: any;
@@ -32,6 +33,30 @@ export class AuthService implements OnInit {
   }
   register(user: any) {
     return this.http.post(this.apiUrl, user);
+  }
+  // register(user: any): Observable<any> {
+  //   return this.checkUserNameAvailability(user.userName).pipe(
+  //     switchMap((isAvailable: boolean) => {
+  //       if (!isAvailable) {
+  //         // If the username is not available, return an error Observable
+  //         return throwError('Username is already taken!');
+  //       }
+
+  //       // If the username is available, proceed with the registration
+  //       return this.http.post(`${this.apiUrl}/users/register`, user);
+  //     }),
+  //     catchError((error) => {
+  //       // Catch any error from the username availability check or the registration
+  //       return throwError(error);
+  //     })
+  //   );
+  // }
+
+  // Method to check username availability
+  checkUserNameAvailability(userName: string): Observable<boolean> {
+    return this.http.get<boolean>(
+      `${this.apiUrl}/api/check-username/${userName}`
+    );
   }
 
   login(credentials: any) {

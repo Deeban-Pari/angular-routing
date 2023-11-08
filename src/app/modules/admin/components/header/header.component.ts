@@ -8,9 +8,18 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  userName: string | null = null;
   @Output() sideNavToggled = new EventEmitter<boolean>();
   menuStatus: boolean = false;
-  constructor(private router: Router, private auth: AuthService) {}
+  // constructor(private router: Router, private auth: AuthService) {}
+  constructor(private router: Router, private auth: AuthService) {
+    const userDetails = localStorage.getItem('userDetails');
+    if (userDetails) {
+      const user = JSON.parse(userDetails);
+      this.userName = user.userName;
+      console.log('User Name:', this.userName);
+    }
+  }
   public onLogoutClick() {
     // this.router.navigate(['/login']);
     this.auth.logout();

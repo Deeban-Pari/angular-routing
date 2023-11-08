@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark px-2">
+<nav class="navbar navbar-expand navbar-dark bg-primary px-2">
   <div class="side-nav-button p-2 me-3 text-light" (click)="sideNavToggle()">
     <i class="fa-solid fa-bars"></i>
   </div>
-  <a class="navbar-brand px-4" href="#">Angular</a>
-  <div class="navbar-collapse">
+  <a class="navbar-brand px-4" href="#">Ecomm</a>
+  <!-- <div class="navbar-collapse">
     <ul class="navbar-nav me-auto">
       <li class="nav-item active" routerLinkActive="active">
         <a class="nav-link" routerLink="./home"
@@ -20,7 +20,7 @@
         <a class="nav-link" routerLink="./about">About</a>
       </li>
     </ul>
-  </div>
+  </div> -->
 
   <form class="d-flex me-5">
     <!-- <input class="form-control me-2" type="search" placeholder="Search" /> -->
@@ -32,7 +32,7 @@
       Logout
     </button> -->
   </form>
-  <div class="profile-logo dropdown" style="margin-right: 3%">
+  <!-- <div class="profile-logo dropdown" style="margin-right: 3%">
     <button
       class="btn btn-outline-light dropdown-toggle"
       data-bs-toggle="dropdown"
@@ -51,5 +51,22 @@
         >
       </li>
     </ul>
+  </div> -->
+
+  <div class="profile-container">
+    <div class="profile-info">
+      <!-- Add your profile information here, e.g., name, image, etc. -->
+      <span class="profile-name">{{ userName }}</span>
+      <img
+        class="profile-image"
+        src="https://t3.ftcdn.net/jpg/05/17/79/88/360_F_517798849_WuXhHTpg2djTbfNf0FQAjzFEoluHpnct.jpg"
+        alt="Profile Image"
+      />
+    </div>
+    <div class="dropdown-content">
+      <a class="dropdown-item">Settings</a>
+      <a>Profile Settings</a>
+      <a (click)="onLogoutClick()" style="cursor: pointer">Logout</a>
+    </div>
   </div>
 </nav>

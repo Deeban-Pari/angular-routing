@@ -1,0 +1,6 @@
+.display-area {
+  position: absolute;
+  left: 10px;
+  width: calc(100% - 250px);
+  margin-top: -40%;
+}

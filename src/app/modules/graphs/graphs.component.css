@@ -1,0 +1,18 @@
+.charts {
+  position: absolute;
+  left: 220px;
+  margin-top: -10%;
+  display: flex;
+  margin: 20px;
+}
+
+.pie {
+  width: 520px;
+  margin-right: 20px;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+.line {
+  width: 520px;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}

@@ -13,17 +13,64 @@
       <input type="checkbox" id="chk" aria-hidden="true" />
 
       <div class="signup">
-        <form (submit)="register()">
-          <label for="chk" aria-hidden="true">Sign up</label>
+        <form (submit)="login()" #myForm="ngForm">
+          <label for="chk" aria-hidden="true">Login</label>
           <input
             type="text"
+            id="txtbox"
+            name="UserName"
+            placeholder="User Name"
+            required=""
+            [(ngModel)]="credentials.userName"
+          />
+
+          <!-- <input
+            type="password"
+            id="txtbox"
+            name="pswd"
+            placeholder="Password"
+            required=""
+            [(ngModel)]="credentials.password"
+          /> -->
+          <div class="password-container">
+            <input
+              type="{{ showPassword ? 'text' : 'password' }}"
+              id="txtbox"
+              name="pswd"
+              placeholder="Password"
+              required=""
+              [(ngModel)]="credentials.password"
+            />
+            <i
+              class="fa-solid fa-eye"
+              id="eye"
+              (click)="togglePasswordVisibility()"
+            ></i>
+          </div>
+
+          <!-- <button (click)="togglePasswordVisibility()">
+            {{ showPassword ? "Hide" : "Show" }} Password
+          </button> -->
+
+          <button>Login</button>
+        </form>
+      </div>
+
+      <div class="login" (submit)="register()">
+        <form>
+          <label for="chk" aria-hidden="true">SignUp</label>
+          <input
+            type="text"
+            id="txtbox"
             name="txt"
-            placeholder="User name"
+            placeholder="Username"
             [(ngModel)]="user.userName"
             required=""
           />
           <input
             type="email"
+            required
+            id="txtbox"
             name="email"
             placeholder="Email"
             [(ngModel)]="user.email"
@@ -31,33 +78,13 @@
           />
           <input
             type="password"
+            id="txtbox"
             name="pswd"
             placeholder="Password"
             [(ngModel)]="user.password"
             required=""
           />
-          <button>Sign up</button>
-        </form>
-      </div>
-
-      <div class="login">
-        <form (submit)="login()">
-          <label for="chk" aria-hidden="true">Login</label>
-          <input
-            type="text"
-            name="UserName"
-            placeholder="User Name"
-            required=""
-            [(ngModel)]="credentials.userName"
-          />
-          <input
-            type="password"
-            name="pswd"
-            placeholder="Password"
-            required=""
-            [(ngModel)]="credentials.password"
-          />
-          <button>Login</button>
+          <button>SignUp</button>
         </form>
       </div>
     </div>

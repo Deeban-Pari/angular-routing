@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Add this for BrowserAnimationsModule
+import { ToastrModule } from 'ngx-toastr'; // Import ToastrModule
+import { ChartModule } from 'angular-highcharts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +31,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule, // Add this for BrowserAnimationsModule
+    ToastrModule.forRoot(), // Configure ToastrModule
+    ChartModule,
   ],
   providers: [
     JwtHelperService,
